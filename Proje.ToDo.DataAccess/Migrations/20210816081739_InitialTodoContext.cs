@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proje.ToDo.DataAccess.Migrations
 {
-    public partial class InitialToDoContext : Migration
+    public partial class InitialTodoContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,9 @@ namespace Proje.ToDo.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Ad = table.Column<int>(type: "int", nullable: false),
-                    Soyad = table.Column<int>(type: "int", nullable: false),
-                    Email = table.Column<int>(type: "int", nullable: false),
+                    Ad = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Soyad = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Telefon = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -29,8 +29,8 @@ namespace Proje.ToDo.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Ad = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<int>(type: "int", nullable: false),
+                    Ad = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "ntext", nullable: true),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },

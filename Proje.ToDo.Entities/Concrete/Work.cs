@@ -12,9 +12,10 @@ namespace Proje.ToDo.Entities.Concrete
         public int Id { get; set; }
         [Required]
         [MaxLength(100)]
-        public string Ad { get; set; }
+        public string Name { get; set; }
         [Column(TypeName="ntext")]
         public string Description { get; set; }
+        public bool State { get; set; }
         public DateTime CreationDate { get; set; }
         [ForeignKey("Kullanici")]
         public int UserId { get; set; }

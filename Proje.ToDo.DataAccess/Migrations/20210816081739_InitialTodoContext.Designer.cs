@@ -10,8 +10,8 @@ using Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Contexts;
 namespace Proje.ToDo.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    [Migration("20210813152733_WorkColumnsModifiedToDoContext1")]
-    partial class WorkColumnsModifiedToDoContext1
+    [Migration("20210816081739_InitialTodoContext")]
+    partial class InitialTodoContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,14 +28,14 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Ad")
-                        .HasColumnType("int");
+                    b.Property<string>("Ad")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Email")
-                        .HasColumnType("int");
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Soyad")
-                        .HasColumnType("int");
+                    b.Property<string>("Soyad")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Telefon")
                         .HasColumnType("int");

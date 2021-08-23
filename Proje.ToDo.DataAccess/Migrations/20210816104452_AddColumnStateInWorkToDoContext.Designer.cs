@@ -10,8 +10,8 @@ using Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Contexts;
 namespace Proje.ToDo.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    [Migration("20210813150654_InitialToDoContext")]
-    partial class InitialToDoContext
+    [Migration("20210816104452_AddColumnStateInWorkToDoContext")]
+    partial class AddColumnStateInWorkToDoContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,19 +26,27 @@ namespace Proje.ToDo.DataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Ad")
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Number")
+                        .HasMaxLength(50)
                         .HasColumnType("int");
 
-                    b.Property<int>("Email")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Soyad")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Telefon")
-                        .HasColumnType("int");
+                    b.Property<string>("Surname")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -50,16 +58,23 @@ namespace Proje.ToDo.DataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Ad")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Description")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("ntext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

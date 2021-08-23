@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using Proje.ToDo.Entities.Interfaces;
+using System.Collections.Generic;
 
 namespace Proje.ToDo.Entities.Concrete
 {
-    public class User
+  public class User:ITable
     {
         public int Id { get; set; }
-        public int Ad { get; set; }
-        public int Soyad { get; set; }
-        public int  Email { get; set; }
-        public int Telefon { get; set; }
-
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string  Email { get; set; }
+        public int Number { get; set; }
         public List<Work> Works { get; set; }
 
 

@@ -3,12 +3,7 @@ using System.Collections.Generic;
 
 namespace Proje.ToDo.DataAccess.Interfaces
 {
-    public interface IWorkDal
+    public interface IWorkDal:IGenericDal <Work>
     {
-        void Save(Work table);
-        void Delete(Work table);
-        void Update(Work table);
-        Work GetIdWithOneWork(int id);
-        List<Work> GetAllWork();
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Contexts;
 
 namespace Proje.ToDo.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20210824121532_CreateTableAciliyet")]
+    partial class CreateTableAciliyet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,8 +130,7 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Tanim")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -193,8 +194,7 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -217,8 +217,7 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -238,33 +237,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Rapor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Detay")
-                        .HasColumnType("ntext");
-
-                    b.Property<string>("Tanim")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("WorkID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("WorkID");
-
-                    b.ToTable("Raporlar");
                 });
 
             modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Work", b =>
@@ -356,17 +328,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Rapor", b =>
-                {
-                    b.HasOne("Proje.ToDo.Entities.Concrete.Work", "Work")
-                        .WithMany("Raporlar")
-                        .HasForeignKey("WorkID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Work");
-                });
-
             modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Work", b =>
                 {
                     b.HasOne("Proje.ToDo.Entities.Concrete.Aciliyet", "Aciliyet")
@@ -377,8 +338,7 @@ namespace Proje.ToDo.DataAccess.Migrations
 
                     b.HasOne("Proje.ToDo.Entities.Concrete.AppUser", "AppUser")
                         .WithMany("Works")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("AppUserId");
 
                     b.Navigation("Aciliyet");
 
@@ -393,11 +353,6 @@ namespace Proje.ToDo.DataAccess.Migrations
             modelBuilder.Entity("Proje.ToDo.Entities.Concrete.AppUser", b =>
                 {
                     b.Navigation("Works");
-                });
-
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Work", b =>
-                {
-                    b.Navigation("Raporlar");
                 });
 #pragma warning restore 612, 618
         }

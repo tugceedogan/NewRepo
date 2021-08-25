@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Proje.ToDo.Business.Interfaces.NewFolder
+namespace Proje.ToDo.Business.Interfaces
 {
-    public interface IUserService : IGenericService<User>
+    public interface IAciliyetService:IGenericService<Aciliyet>
     {
     }
 }

@@ -91,6 +91,9 @@ namespace Proje.ToDo.Web.Controllers
         public IActionResult Error()
         {
             var exceptionHandlerPathFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+            ViewBag.Path=exceptionHandlerPathFeature.Path;
+            ViewBag.Message = exceptionHandlerPathFeature.Error.Message;
+           
             return View();
         }
         public IActionResult Hata()

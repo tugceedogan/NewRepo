@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Contexts;
 
 namespace Proje.ToDo.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20210824100915_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,22 +122,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Aciliyet", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Tanim")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Aciliyetler");
-                });
-
             modelBuilder.Entity("Proje.ToDo.Entities.Concrete.AppRole", b =>
                 {
                     b.Property<int>("Id")
@@ -192,10 +178,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -215,10 +197,6 @@ namespace Proje.ToDo.DataAccess.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -240,33 +218,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Rapor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Detay")
-                        .HasColumnType("ntext");
-
-                    b.Property<string>("Tanim")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("WorkID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("WorkID");
-
-                    b.ToTable("Raporlar");
-                });
-
             modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Work", b =>
                 {
                     b.Property<int>("Id")
@@ -275,12 +226,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasAnnotation("SqlServer:IdentityIncrement", 1)
                         .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AciliyetId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AppUserId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -297,10 +242,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AciliyetId");
-
-                    b.HasIndex("AppUserId");
 
                     b.ToTable("Works");
                 });
@@ -354,50 +295,6 @@ namespace Proje.ToDo.DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Rapor", b =>
-                {
-                    b.HasOne("Proje.ToDo.Entities.Concrete.Work", "Work")
-                        .WithMany("Raporlar")
-                        .HasForeignKey("WorkID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Work");
-                });
-
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Work", b =>
-                {
-                    b.HasOne("Proje.ToDo.Entities.Concrete.Aciliyet", "Aciliyet")
-                        .WithMany("Works")
-                        .HasForeignKey("AciliyetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Proje.ToDo.Entities.Concrete.AppUser", "AppUser")
-                        .WithMany("Works")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.Navigation("Aciliyet");
-
-                    b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Aciliyet", b =>
-                {
-                    b.Navigation("Works");
-                });
-
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.AppUser", b =>
-                {
-                    b.Navigation("Works");
-                });
-
-            modelBuilder.Entity("Proje.ToDo.Entities.Concrete.Work", b =>
-                {
-                    b.Navigation("Raporlar");
                 });
 #pragma warning restore 612, 618
         }

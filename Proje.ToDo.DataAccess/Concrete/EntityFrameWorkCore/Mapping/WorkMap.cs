@@ -16,6 +16,7 @@ namespace Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Mapping
             builder.Property(I => I.Name).HasMaxLength(200);
             builder.Property(I => I.Description).HasColumnType("ntext");
             builder.Property(I => I.Description);
+            builder.HasOne(I => I.Aciliyet).WithMany(I => I.Works).HasForeignKey(I=>I.AciliyetId);
 
 
         }

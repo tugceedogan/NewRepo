@@ -1,42 +1,9 @@
-﻿@model List<Proje.ToDo.Web.Models.MusteriViewModel>
-@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+﻿
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_StandartLayout.cshtml";
 }
 
-@Html.Partial("_Kategoriler")
-
-<partial name="_Kategoriler"/>
-    <p class="text-danger lead">
-        index action kontrol view
-    </p>
-
-@await Component.InvokeAsync("Product")
-
-<div class="alert alert-light lead">
-    @ViewBag.Cookie.Ad
-    @ViewBag.Cookie.Soyad
-</div>
-
-    <a asp-area="" asp-action="Index" asp-controller="Home" asp-route-id="1">Link</a>
-
-
-<deneme gelen-data="başka yazı"></deneme>
-
-    <table>
-        <tr>
-            <th>ViewBag.Name</th>
-            <td>@ViewBag.Name</td>
-        </tr>
-        <tr>
-            <th>ViewData.["Name"]</th>
-            <td>@ViewData.["Name"]</td>
-        </tr>
-    </table>
-
-    <h4>modelden gelen data</h4>
-    @foreach(var item in Model)
-            {
-                <p>@item.Ad</p>
-            }
-
+<h1>Index</h1>
+<a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Sayfasına git</a>
+<a asp-area="Member" >Member sayfasına git</a>

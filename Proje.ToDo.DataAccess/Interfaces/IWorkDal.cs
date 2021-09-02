@@ -3,7 +3,10 @@ using System.Collections.Generic;
 
 namespace Proje.ToDo.DataAccess.Interfaces
 {
-    public interface IWorkDal:IGenericDal <Work>
+    public interface IWorkDal : IGenericDal<Work>
     {
+
+        List<Work> GetirAciliyetIleTamamlanmayan();
+
     }
 }

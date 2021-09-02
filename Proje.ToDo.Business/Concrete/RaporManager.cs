@@ -1,5 +1,6 @@
 ﻿using Proje.ToDo.Business.Interfaces;
 using Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Repositories;
+using Proje.ToDo.DataAccess.Interfaces;
 using Proje.ToDo.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,34 +10,34 @@ namespace Proje.ToDo.Business.Concrete
 {
     public class RaporManager : IRaporService
     {
-        private readonly EfRaporRepository raporRepository;
-        public RaporManager()
+        private readonly IRaporDal _raporDal;
+        public RaporManager(IRaporDal raporDal)
         {
-            raporRepository = new EfRaporRepository();
+            _raporDal = raporDal;
         }
         public void Delete(Rapor table)
         {
-            raporRepository.Delete(table);
+            _raporDal.Delete(table);
         }
 
         public List<Rapor> GetAll()
         {
-            return raporRepository.GetAll();
+            return _raporDal.GetAll();
         }
 
         public Rapor GetIdWithOne(int id)
         {
-            return raporRepository.GetIdWithOne(id);
+            return _raporDal.GetIdWithOne(id);
         }
 
         public void Save(Rapor table)
         {
-            raporRepository.Save(table);
+            _raporDal.Save(table);
         }
 
         public void Update(Rapor table)
         {
-            raporRepository.Update(table);
+            _raporDal.Update(table);
         }
     }
 }

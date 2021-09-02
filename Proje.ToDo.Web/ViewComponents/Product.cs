@@ -13,7 +13,7 @@ namespace Proje.ToDo.Web.ViewComponents
         {
             List<MusteriViewModel> yenimusteri = new List<MusteriViewModel>();
 
-            
+
 
             return View("Yeni", yenimusteri);
         }

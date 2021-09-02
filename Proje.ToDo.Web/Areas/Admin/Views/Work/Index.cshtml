@@ -1,0 +1,43 @@
+﻿@model List<WorkListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model.Count != 0)
+{
+    <a asp-action="EkleWork" class="btn btn-info btn-sm my-2 ">yeni görev oluştur</a>
+    <table class="table table-sm table-hover">
+        <tr>
+            <th>Ad</th>
+            <th>Aciklama</th>
+            <th>Oluşturulma Tarih</th>
+            <th>Durum</th>
+            <th>Aciliyet</th>
+            <th>İşlem</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.CreationDate.ToString("D")</td>
+                <td>@item.Aciliyet.Tanim</td>
+                <td>
+                    <a asp-action="GuncelleWork" asp-route-id="@item.Id" class="btn btn-warning btn-sm" >Düzenle</a>
+                    <a href="">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <div class="p-3 text-center mt-3 lead">
+        <p class="lead">
+            herhangi bir görev bulunamadı.
+        </p>
+        <a asp-action="EkleWork" asp-controller="Work" class="btn btn-info btn-sm">bir görev oluştur</a>
+    </div>
+}
+

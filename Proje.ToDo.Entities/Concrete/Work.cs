@@ -14,10 +14,10 @@ namespace Proje.ToDo.Entities.Concrete
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
-        [Column(TypeName="ntext")]
+        [Column(TypeName = "ntext")]
         public string Description { get; set; }
         public bool State { get; set; }
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; set; } = DateTime.Now;
 
         public int AciliyetId { get; set; }
         public Aciliyet Aciliyet { get; set; }

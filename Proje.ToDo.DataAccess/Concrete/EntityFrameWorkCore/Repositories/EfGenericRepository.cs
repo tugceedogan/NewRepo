@@ -33,14 +33,14 @@ namespace Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Repositories
         public void Save(Table table)
         {
             using var context = new ToDoContext();
-            context.Set<Table>().Update(table);
+            context.Set<Table>().Add(table);
             context.SaveChanges();
         }
 
         public void Update(Table table)
         {
             using var context = new ToDoContext();
-            context.Set<Table>().Add(table);
+            context.Set<Table>().Update(table);
             context.SaveChanges();
         }
     }

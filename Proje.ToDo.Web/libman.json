@@ -26,6 +26,16 @@
       "library": "jquery-validation-unobtrusive@3.2.12",
       "destination": "wwwroot/jqueryUnob",
       "files": [ "jquery.validate.unobtrusive.min.js" ]
+    },
+    {
+      "library": "jquery-validate@1.19.3",
+      "destination": "wwwroot/lib/jqueryValidate",
+      "files": [ "jquery.validate.min.js" ]
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.12",
+      "destination": "wwwroot/lib/jqueryUnob",
+      "files": ["jquery.validate.unobtrusive.min.js"]
     }
   ]
 }

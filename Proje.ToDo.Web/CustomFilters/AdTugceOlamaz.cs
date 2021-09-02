@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Proje.ToDo.Web.CustomFilters
 {
-    public class AdTugceOlamaz:ActionFilterAttribute
+    public class AdTugceOlamaz : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {

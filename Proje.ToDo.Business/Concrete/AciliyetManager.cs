@@ -1,5 +1,6 @@
 ﻿using Proje.ToDo.Business.Interfaces;
 using Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Repositories;
+using Proje.ToDo.DataAccess.Interfaces;
 using Proje.ToDo.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,34 +10,34 @@ namespace Proje.ToDo.Business.Concrete
 {
     public class AciliyetManager : IAciliyetService
     {
-        private readonly EfAciliyetRepository efAciliyetRepository;
-        public AciliyetManager()
+        private readonly IAciliyetDal _aciliyetDal;
+        public AciliyetManager(IAciliyetDal aciliyetDal)
         {
-            efAciliyetRepository = new EfAciliyetRepository();  
+            _aciliyetDal = aciliyetDal;
         }
         public void Delete(Aciliyet table)
         {
-           efAciliyetRepository.Delete(table);
+            _aciliyetDal.Delete(table);
         }
 
         public List<Aciliyet> GetAll()
         {
-            return efAciliyetRepository.GetAll();
+            return _aciliyetDal.GetAll();
         }
 
         public Aciliyet GetIdWithOne(int id)
         {
-            return efAciliyetRepository.GetIdWithOne(id);
+            return _aciliyetDal.GetIdWithOne(id);
         }
 
         public void Save(Aciliyet table)
         {
-            efAciliyetRepository.Save(table);
+            _aciliyetDal.Save(table);
         }
 
         public void Update(Aciliyet table)
         {
-            efAciliyetRepository.Update(table);
+            _aciliyetDal.Update(table);
         }
     }
 }

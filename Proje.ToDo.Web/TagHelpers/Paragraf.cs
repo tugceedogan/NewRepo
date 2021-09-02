@@ -13,7 +13,7 @@ namespace Proje.ToDo.Web.TagHelpers
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             string data = string.Empty;
-            data = "<p> <b>" +GelenData + "</b> </p>";
+            data = "<p> <b>" + GelenData + "</b> </p>";
             output.Content.SetHtmlContent(data);
             base.Process(context, output);
         }

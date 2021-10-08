@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Proje.ToDo.Business.Interfaces;
 using Proje.ToDo.Entities.Concrete;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Proje.ToDo.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class WorkController : Controller
     {
@@ -98,6 +100,12 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             return View(model);
+        }
+
+        public IActionResult DeleteWork(int id)
+        {
+            _workService.Delete(new Work { Id = id });
+            return Json(null);
         }
     }
 }

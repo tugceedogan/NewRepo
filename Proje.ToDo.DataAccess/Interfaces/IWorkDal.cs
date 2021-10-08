@@ -7,6 +7,7 @@ namespace Proje.ToDo.DataAccess.Interfaces
     {
 
         List<Work> GetirAciliyetIleTamamlanmayan();
-
+        List<Work> GetAllTable();
+        Work GetirAciliyetIleId(int id);
     }
 }

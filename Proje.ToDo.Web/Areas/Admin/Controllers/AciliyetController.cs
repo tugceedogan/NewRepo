@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Proje.ToDo.Business.Interfaces;
 using Proje.ToDo.Entities.Concrete;
 using Proje.ToDo.Web.Areas.Admin.Models;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Proje.ToDo.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class AciliyetController : Controller
     {

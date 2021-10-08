@@ -21,7 +21,7 @@
         <span asp-validation-for="@Model.AciliyetId" class="text-danger"></span>
         <select asp-for="@Model.AciliyetId" class="form-control" asp-items="ViewBag.Aciliyetler">
             <option hidden value="-1">seçiniz </option>
-        </select>
+        </select><br />
         <button type="submit" class="btn btn-info btn-sm">Kaydet</button>
     </div>
 </form>

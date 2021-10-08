@@ -27,9 +27,19 @@ namespace Proje.ToDo.Business.Concrete
             return _workDal.GetAll();
         }
 
+        public List<Work> GetAllTable()
+        {
+            return _workDal.GetAllTable();
+        }
+
         public Work GetIdWithOne(int id)
         {
             return _workDal.GetIdWithOne(id);
+        }
+
+        public Work GetirAciliyetIleId(int id)
+        {
+            return _workDal.GetirAciliyetIleId(id);
         }
 
         public List<Work> GetirAciliyetIleTamamlanmayan()

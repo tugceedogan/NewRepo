@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Member\Models\" />
-    <Folder Include="wwwroot\img\" />
+    <Folder Include="ViewComponents\" />
   </ItemGroup>
 
   <ItemGroup>

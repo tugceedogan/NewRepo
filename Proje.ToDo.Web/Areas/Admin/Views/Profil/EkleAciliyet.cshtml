@@ -1,11 +1,10 @@
-﻿@model AciliyetUpdateViewModel 
+﻿@model ProfilAddViewModel
 @{
-    ViewData["Title"] = "GuncelleAciliyet";
+    ViewData["Title"] = "EkleAciliyet";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<form asp-action="GuncelleAciliyet" class="w-75 mx-auto p-3" method="post">
-    <input type="hidden" asp-for="Id"/>
+<form class="w-75 mx-auto p-3" method="post">
     <div class="form-group">
         <label asp-for="Tanim"></label>
         <span asp-validation-for="Tanim" class="text-danger"></span>
@@ -19,4 +18,3 @@
     <script src="~/jqueryValidate/jquery.validate.min.js"></script>
     <script src="~/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
 }
-

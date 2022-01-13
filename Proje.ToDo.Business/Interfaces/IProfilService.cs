@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Proje.ToDo.DataAccess.Interfaces
+namespace Proje.ToDo.Business.Interfaces
 {
-    public interface IAciliyetDal:IGenericDal<Aciliyet>
+    public interface IProfilService:IGenericService<Profil>
     {
     }
 }

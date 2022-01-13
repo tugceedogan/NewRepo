@@ -37,14 +37,20 @@ namespace Proje.ToDo.Business.Concrete
             return _workDal.GetIdWithOne(id);
         }
 
-        public Work GetirAciliyetIleId(int id)
+
+        public List<Work> GetirileAppUserId(int appUserId)
         {
-            return _workDal.GetirAciliyetIleId(id);
+            return _workDal.GetirileAppUserId(appUserId);
         }
 
-        public List<Work> GetirAciliyetIleTamamlanmayan()
+        public Work GetirProfilIleId(int id)
         {
-            return _workDal.GetirAciliyetIleTamamlanmayan();
+            return _workDal.GetirProfilIleId(id);
+        }
+
+        public List<Work> GetirProfilIleTamamlanmayan()
+        {
+            return _workDal.GetirProfilIleTamamlanmayan();
         }
 
         public void Save(Work table)

@@ -20,7 +20,7 @@ namespace Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Contexts
         {
           
             modelBuilder.ApplyConfiguration(new WorkMap());
-            modelBuilder.ApplyConfiguration(new AciliyetMap());
+            modelBuilder.ApplyConfiguration(new ProfilMap());
             modelBuilder.ApplyConfiguration(new RaporMap());
             modelBuilder.ApplyConfiguration(new AppUserMap());
             base.OnModelCreating(modelBuilder);
@@ -28,7 +28,7 @@ namespace Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Contexts
 
     
         public DbSet<Work> Works { get; set; }
-        public DbSet<Aciliyet> Aciliyetler { get; set; }
+        public DbSet<Profil> Aciliyetler { get; set; }
         public DbSet<Rapor> Raporlar { get; set; }
     }
 

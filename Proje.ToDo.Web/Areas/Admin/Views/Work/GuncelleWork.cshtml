@@ -17,9 +17,9 @@
         <textarea type="" asp-for="Description" class="form-control"></textarea>
     </div>
     <div class="form-group">
-        <label>aciliyet durumu seçiniz:</label>
-        <span asp-validation-for="@Model.AciliyetId" class="text-danger"></span>
-        <select asp-for="@Model.AciliyetId" class="form-control" asp-items="ViewBag.Aciliyetler">
+        <label>profil durumu seçiniz:</label>
+        <span asp-validation-for="@Model.ProfilId" class="text-danger"></span>
+        <select asp-for="@Model.ProfilId" class="form-control" asp-items="ViewBag.Profils">
             <option hidden value="-1">seçiniz </option>
         </select><br />
         <button type="submit" class="btn btn-info btn-sm">Kaydet</button>

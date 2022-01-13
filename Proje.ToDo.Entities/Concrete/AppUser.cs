@@ -10,7 +10,7 @@ namespace Proje.ToDo.Entities.Concrete
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Picture { get; set; }
+        public string Picture { get; set; } = "default.png";
         public List<Work> Works { get; set; }
 
     }

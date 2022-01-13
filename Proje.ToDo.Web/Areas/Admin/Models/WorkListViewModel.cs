@@ -14,6 +14,8 @@ namespace Proje.ToDo.Web.Areas.Admin.Models
         public bool State { get; set; }
         public DateTime CreationDate { get; set; }
         public int AciliyetId { get; set; }
-        public Aciliyet Aciliyet { get; set; }
+        public Profil Aciliyet { get; set; }
+        public int ProfilId { get; internal set; }
+        public Profil Profil { get; internal set; }
     }
 }

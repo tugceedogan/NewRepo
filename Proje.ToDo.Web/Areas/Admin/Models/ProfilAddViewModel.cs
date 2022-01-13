@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Proje.ToDo.Web.Areas.Admin.Models
 {
-    public class AciliyetUpdateViewModel
+    public class ProfilAddViewModel
     {
-        public int Id { get; set; }
-        [Display(Name ="Tanim:")]
-        [Required(ErrorMessage="tanım alanı gereklidir")]
+        [Display(Name="Tanım")]
+        [Required(ErrorMessage ="Tanım alanı boş geçilemez")]
         public string Tanim { get; set; }
     }
 }

@@ -29,14 +29,16 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
             List<WorkListAllViewModel> models = new List<WorkListAllViewModel>();
             foreach(var item in works)
             {
-                WorkListAllViewModel model = new WorkListAllViewModel();
-                model.Id = item.Id;
-                model.Description = item.Description;
-                model.Aciliyet = item.Aciliyet;
-                model.Name = item.Name;
-                model.AppUser = item.AppUser;
-                model.CreationDate = item.CreationDate;
-                model.Raporlar = item.Raporlar;
+                WorkListAllViewModel model = new WorkListAllViewModel
+                {
+                    Id = item.Id,
+                    Description = item.Description,
+                    Profil = item.Profil,
+                    Name = item.Name,
+                    AppUser = item.AppUser,
+                    CreationDate = item.CreationDate,
+                    Raporlar = item.Raporlar
+                };
                 models.Add(model);
             }
             return View(models);
@@ -49,34 +51,37 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
 
             ViewBag.Aranan = s;
 
-            int toplamSayfa;
-            var work = _workService.GetirAciliyetIleId(id);
+            var work = _workService.GetirProfilIleId(id);
 
             //ViewBag.ToplamSayfa =(int)Math.Ceiling((double) _appUserService.GetNotAdmin().Count/3);
 
-            var personeller = _appUserService.GetNotAdmin(out toplamSayfa,s,sayfa);
+            var personeller = _appUserService.GetNotAdmin(out int toplamSayfa,s,sayfa);
             ViewBag.ToplamSayfa = toplamSayfa;
 
             List<AppUserListViewModel> appUserListModel = new List<AppUserListViewModel>();
             foreach(var item in personeller)
             {
-                AppUserListViewModel model = new AppUserListViewModel();
-                model.Id = item.Id;
-                model.Name = item.Name;
-                model.SurName = item.Surname;
-                model.Email = item.Email;
-                model.Picture = item.Picture;
+                AppUserListViewModel model = new AppUserListViewModel
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    SurName = item.Surname,
+                    Email = item.Email,
+                    Picture = item.Picture
+                };
                 appUserListModel.Add(model);
             }
             ViewBag.Personeller = appUserListModel;
 
-            WorkListViewModel gorevModel = new WorkListViewModel();
-            gorevModel.Id = work.Id;
-            gorevModel.Name = work.Name;
-            gorevModel.Description = work.Description;
-            gorevModel.Aciliyet = work.Aciliyet;
-            gorevModel.CreationDate = work.CreationDate;
-            gorevModel.AciliyetId = work.AciliyetId;
+            WorkListViewModel gorevModel = new WorkListViewModel
+            {
+                Id = work.Id,
+                Name = work.Name,
+                Description = work.Description,
+                Profil = work.Profil,
+                CreationDate = work.CreationDate,
+                ProfilId = work.ProfilId
+            };
             return View(gorevModel);
         }
     }

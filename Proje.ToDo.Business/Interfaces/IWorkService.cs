@@ -7,8 +7,9 @@ namespace Proje.ToDo.Business.Interfaces
 {
     public interface IWorkService : IGenericService<Work>
     {
-        List<Work> GetirAciliyetIleTamamlanmayan();
+        List<Work> GetirProfilIleTamamlanmayan();
         List<Work> GetAllTable();
-        Work GetirAciliyetIleId(int id);
+        Work GetirProfilIleId(int id);
+        List<Work> GetirileAppUserId(int appUserId);
     }
 }

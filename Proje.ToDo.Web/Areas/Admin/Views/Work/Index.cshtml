@@ -21,7 +21,7 @@
                 <td>@item.Name</td>
                 <td>@item.Description</td>
                 <td>@item.CreationDate.ToString("D")</td>
-                <td>@item.Aciliyet.Tanim</td>
+                <td>@item.Profil.Tanim</td>
                 <td>
                     <a asp-action="GuncelleWork" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
                     <a href="" data-toggle="modal" data-target="#silmeEkrani" data-bildirim="@item.Id">SİL</a>
@@ -71,7 +71,8 @@ else
 
                     $.ajax({
                         type:"Get",
-                        url: "./Work/DeleteWork",
+                        
+                        : "./Work/DeleteWork",
                         data: { id: id },
                         dataType: "json",
                         contentType: "application/json; charset=utf8;",

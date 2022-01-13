@@ -16,24 +16,24 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
     public class WorkController : Controller
     {
         private readonly IWorkService _workService;
-        private readonly IAciliyetService _aciliyetService;
-        public WorkController(IWorkService workService,IAciliyetService aciliyetService)
+        private readonly IProfilService _profilService;
+        public WorkController(IWorkService workService,IProfilService profilService)
         {
-            _aciliyetService = aciliyetService;
+            _profilService = profilService;
             _workService = workService;
         }
         public IActionResult Index()
         {
             TempData["Active"] = "work";
-            List<Work> works = _workService.GetirAciliyetIleTamamlanmayan();
+            List<Work> works = _workService.GetirProfilIleTamamlanmayan();
             List<WorkListViewModel> models = new List<WorkListViewModel>();
             foreach (var item in works)
             {
                 WorkListViewModel model = new WorkListViewModel
                 {
                     Description = item.Description,
-                    Aciliyet = item.Aciliyet,
-                    AciliyetId = item.AciliyetId,
+                    Profil = item.Profil,
+                    ProfilId = item.ProfilId,
                     Name = item.Name,
                     State = item.State,
                     Id = item.Id,
@@ -47,7 +47,7 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
         public IActionResult EkleWork()
         {
             TempData["Active"] = "work";
-            ViewBag.Aciliyetler = new SelectList(_aciliyetService.GetAll(),"Id","Tanim");
+            ViewBag.Aciliyetler = new SelectList(_profilService.GetAll(),"Id","Tanim");
             return View(new WorkAddViewModel());
         }
 
@@ -61,7 +61,7 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
                 {
                     Description = model.Description,
                     Name= model.Name,
-                    AciliyetId=model.AciliyetId,
+                    ProfilId=model.ProfilId,
                 });
                 return RedirectToAction("Index");
             }
@@ -76,10 +76,10 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
             {
                 Id = work.Id,
                 Description = work.Description,
-                AciliyetId = work.AciliyetId,
+                ProfilId = work.ProfilId,
                 Name = work.Name
             };
-            ViewBag.Aciliyetler = new SelectList(_aciliyetService.GetAll(), "Id", "Tanim",work.AciliyetId);
+            ViewBag.Profils = new SelectList(_profilService.GetAll(), "Id", "Tanim",work.ProfilId);
             return View(model);
 
         }
@@ -93,7 +93,7 @@ namespace Proje.ToDo.Web.Areas.Admin.Controllers
                 {
                     Id = model.Id,
                     Description = model.Description,
-                    AciliyetId = model.AciliyetId,
+                    ProfilId = model.ProfilId,
                     Name = model.Name,
 
                 });

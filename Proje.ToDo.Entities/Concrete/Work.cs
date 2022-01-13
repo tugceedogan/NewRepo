@@ -19,8 +19,8 @@ namespace Proje.ToDo.Entities.Concrete
         public bool State { get; set; }
         public DateTime CreationDate { get; set; } = DateTime.Now;
 
-        public int AciliyetId { get; set; }
-        public Aciliyet Aciliyet { get; set; }
+        public int ProfilId { get; set; }
+        public Profil Profil { get; set; }
 
         public int? AppUserId { get; set; }
         public AppUser AppUser { get; set; }

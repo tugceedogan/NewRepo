@@ -27,13 +27,13 @@ namespace Proje.ToDo.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IWorkService, WorkManager>();
-            services.AddScoped<IAciliyetService, AciliyetManager>();
+            services.AddScoped<IProfilService, ProfilManager>();
             services.AddScoped<IRaporService, RaporManager>();
             services.AddScoped<IAppUserService, AppUserManager>();
 
 
             services.AddScoped<IWorkDal, EfWorkRepository>();
-            services.AddScoped<IAciliyetDal, EfAciliyetRepository>();
+            services.AddScoped<IProfilDal, EfProfilRepository>();
             services.AddScoped<IRaporDal, EfRaporRepository>();
             services.AddScoped<IAppUserDal, EfAppUserRepository>();
 

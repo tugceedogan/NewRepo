@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Mapping
 {
-    public class AciliyetMap : IEntityTypeConfiguration<Aciliyet>
+    public class ProfilMap : IEntityTypeConfiguration<Profil>
     {
-        public void Configure(EntityTypeBuilder<Aciliyet> builder)
+        public void Configure(EntityTypeBuilder<Profil> builder)
         {
             builder.Property(I => I.Tanim).HasMaxLength(100);
         }

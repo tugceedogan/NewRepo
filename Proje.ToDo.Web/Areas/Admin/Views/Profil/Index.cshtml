@@ -1,4 +1,4 @@
-﻿@model List<AciliyetListViewModel>
+﻿@model List<ProfilListViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -21,7 +21,7 @@
                 <tr>
                     <td>@item.Tanim</td>
                     <td>
-                        <a asp-action="GuncelleAciliyet" asp-controller="Aciliyet" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
+                        <a asp-action="GuncelleProfil" asp-controller="Profil" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
                     </td>
                 </tr>
             }
@@ -32,9 +32,9 @@ else
 {
     <div class="text-center lead mt-4">
         <p class="">
-            Sistemde kayıtlı aciliyet durumu bulunamadı.
+            Sistemde kayıtlı profil bulunamadı.
         </p>
-        <a asp-action="EkleAciliyet" asp-controller="Aciliyet" class="btn btn-sm btn-info my-2">Yeni aciliyet ekle</a>
+        <a asp-action="EkleAciliyet" asp-controller="Profil" class="btn btn-sm btn-info my-2">Profil ekle</a>
 
     </div>
 }

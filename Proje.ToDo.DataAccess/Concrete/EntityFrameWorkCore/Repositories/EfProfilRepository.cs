@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Proje.ToDo.DataAccess.Concrete.EntityFrameWorkCore.Repositories
 {
-    public class EfAciliyetRepository:EfGenericRepository<Aciliyet>,IAciliyetDal
+    public class EfProfilRepository:EfGenericRepository<Profil>,IProfilDal
     {
     }
 }
